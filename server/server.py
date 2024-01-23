@@ -1,8 +1,9 @@
 import socket
 import signal
 import sys
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import threading
+import json
 
 HOST = "0.0.0.0"
 PORT = 7654
@@ -32,8 +33,8 @@ def run_tcp():
                 data = conn.recv(1024)
                 if not data:
                     break
-                with open(DATA_FILE, "ab") as f:
-                    f.write(data)
+                with open(DATA_FILE, "a") as f:
+                    f.write(data.decode())
 
 thread = threading.Thread(target=run_tcp)
 app = Flask(__name__)
@@ -43,4 +44,14 @@ thread.start()
 @app.route("/")
 def hello_world():
     return render_template("index.html")
-             
+
+@app.route("/api/get-data")
+def get_data():
+
+    with open(DATA_FILE, 'r') as f:
+        lines  = f.readlines()
+
+        resp = {'lines' : lines}
+
+        return json.dumps(resp)
+                
