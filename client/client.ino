@@ -74,9 +74,8 @@ void loop() {
     Serial.print("Time: ");
     Serial.println(seconds);
     client.print(types[mode]);
-    client.print(" time: ");
+    client.print(" ")
     client.print(seconds);
-    client.print("\n");
     client.stop();
     delay(1000);
   }
