@@ -1,4 +1,5 @@
 import React from 'react'
+import './Data.css'
 
 class Data extends React.Component {
     constructor(props) {
@@ -26,22 +27,26 @@ class Data extends React.Component {
         }
         else {
             return (
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>{this.state.value["ID"][0]}</th>
-                            <th>{this.state.value["ID"][1]}</th>
-                            <th>{this.state.value["ID"][2]}</th>
-                        </tr>
-                        <tr>
-                            <th>{this.state.value["MINS"][0]}</th>
-                            <th>{this.state.value["MINS"][1]}</th>
-                            <th>{this.state.value["MINS"][2]}</th>
-                        </tr>
-                    </tbody>
-                </table>
-                
-        
+                <div className='Data-Div'>
+                    <table className='Data-Table'>
+                        <tbody>
+                            <tr>
+                                <th>{this.state.value["ID"][0]}</th>
+                                <th>{this.state.value["ID"][1]}</th>
+                                <th>{this.state.value["ID"][2]}</th>
+                            </tr>
+                            <tr>
+                                <th>{this.state.value["MINS"][0]}</th>
+                                <th>{this.state.value["MINS"][1]}</th>
+                                <th>{this.state.value["MINS"][2]}</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>Total Hours: {
+                            this.state.value["MINS"][0] + this.state.value["MINS"][1] + this.state.value["MINS"][2]
+                        }
+                    </h3>
+                </div>
             )
         }
     }
