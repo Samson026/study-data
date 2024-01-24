@@ -41,15 +41,12 @@ def run_tcp():
                         break
                     else:
                         data += bdata.decode()
-
-                print(data)
                 
                 data = data.split(":")
-                print(data[0], data[1])
 
                 df = pd.read_csv(DATA_FILE)
                 df.loc[df.ID == data[0], "MINS"] += int(data[1])
-                print(df)
+                df.to_csv(DATA_FILE, index=False)
 
 thread = threading.Thread(target=run_tcp)
 app = Flask(__name__)
@@ -64,9 +61,12 @@ def hello_world():
 def get_data():
 
     with open(DATA_FILE, 'r') as f:
-        lines  = f.readlines()
+        df = pd.read_csv(DATA_FILE)
 
-        resp = {'lines' : lines}
+
+
+        resp = df.to_dict(orient='list')
+        print(resp)
 
         return json.dumps(resp)
                 

@@ -6,9 +6,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Study Data</h1>
-        <Data />
+        <h1>Study Hours Data</h1>
       </header>
+      <div className='App-Data'>
+        <Data />
+      </div>   
     </div>
   );
 }
