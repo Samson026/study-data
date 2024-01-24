@@ -1,0 +1,10 @@
+.Data-Table {
+    border-radius: 0.5vh;
+    border-color: white;
+    border: 1px solid;
+}
+
+.Data-Table th {
+    padding: 1vh;
+    border-color: white;
+}
