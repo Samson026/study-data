@@ -28,6 +28,10 @@ class Data extends React.Component {
         else {
             return (
                 <div className='Data-Div'>
+                    <h3>Total Hours: {
+                            this.state.value["MINS"][0] + this.state.value["MINS"][1] + this.state.value["MINS"][2]
+                        }
+                    </h3>
                     <table className='Data-Table'>
                         <tbody>
                             <tr>
@@ -42,10 +46,6 @@ class Data extends React.Component {
                             </tr>
                         </tbody>
                     </table>
-                    <h3>Total Hours: {
-                            this.state.value["MINS"][0] + this.state.value["MINS"][1] + this.state.value["MINS"][2]
-                        }
-                    </h3>
                 </div>
             )
         }
