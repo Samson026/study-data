@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Data from './Data'
+import Entry from './Entry'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       </header>
       <div className='App-Data'>
         <Data />
+        <Entry />
       </div>   
     </div>
   );
