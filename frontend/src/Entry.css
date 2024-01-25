@@ -1,0 +1,27 @@
+#Submit-Button {
+    min-width: 7vw;
+}
+
+.Entry-Div button {
+    margin: 5vh;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 1vh;
+    color: #282c34;
+}
+
+.Entry-Div input {
+    border: none;
+    margin: 0.5vh;
+    padding: 1vh;
+    border-radius: 1px;
+}
+
+.Entry-Div input::selection {
+    border: none;
+    margin: 0.5vh;
+    padding: 1vh;
+    border-radius: 1px;
+    background-color: grey;
+}

@@ -62,6 +62,19 @@ def get_data():
         print(resp)
 
         return json.dumps(resp)
+    
+@app.route("/api/manual-input", methods=["POST"])
+def manual_input():
+    data = json.loads(request.get_data().decode())
+
+    print(data)
+
+    df = pd.read_csv(DATA_FILE)
+    for key in data:
+        df.loc[df.ID == key, "MINS"] += int(data[key])
+    df.to_csv(DATA_FILE, index=False)
+
+    return json.dumps({"RESPONSE" : "SUCESSFULL"})
 
 
 def signal_handler(signal, frame):
